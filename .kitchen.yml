@@ -12,7 +12,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[base]
+      - role[base]
     attributes:
       threatstack:
         deploy_key: <%= ENV['TS_DEPLOY_KEY'] != nil ? ENV['TS_DEPLOY_KEY'] : 'ts_deploy_key' %>
