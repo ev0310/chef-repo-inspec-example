@@ -8,4 +8,4 @@ version          '0.1.0'
 
 depends "threatstack", "1.7.2"
 depends "yum"
-
+depends "yum-epel"
