@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 
+include_recipe 'ntp'
+
 # Get our repos.
 include_recipe 'yum-epel'
 

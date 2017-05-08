@@ -14,6 +14,9 @@ suites:
     run_list:
       - role[base]
     attributes:
+      ntp:
+        servers:
+          - pool.ntp.org
       threatstack:
         deploy_key: <%= ENV['TS_DEPLOY_KEY'] != nil ? ENV['TS_DEPLOY_KEY'] : 'ts_deploy_key' %>
         feature_plan: <%= ENV['TS_FEATURE_PLAN'] != nil ? ENV['TS_FEATURE_PLAN'] : 'monitor' %>
