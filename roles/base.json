@@ -1,0 +1,7 @@
+{
+  "name": "base",
+  "description": "Base OS. Nothing special; used for toying with new things.",
+  "run_list": [
+    "recipe[base]"
+  ]
+}
