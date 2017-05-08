@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+  require_chef_omnibus: 13.0.118
+
+platforms:
+  - name: centos-7.3
+
+suites:
+  - name: default
+    run_list:
+      - recipe[base]
+    attributes:
+      threatstack:
+        deploy_key: <%= ENV['TS_DEPLOY_KEY'] != nil ? ENV['TS_DEPLOY_KEY'] : 'ts_deploy_key' %>
+        feature_plan: <%= ENV['TS_FEATURE_PLAN'] != nil ? ENV['TS_FEATURE_PLAN'] : 'monitor' %>
+        agent_config_args:
+          - <%= ENV['TS_CONFIG_ARGS'] %>
+        version: <%= ENV['TS_PACKAGE_VERSION'] %>
+        cloudsight_service_action: <%= ENV['TS_SERVICE_ACTION'] != nil ? ENV['TS_SERVICE_ACTION'] : 'enable' %>
+        configure_agent: <%= ENV['TS_CONFIG_AGENT'] == '0' ? false : true %>
+
