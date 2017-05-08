@@ -1,7 +1,10 @@
 ---
 driver:
   name: vagrant
+  cachier: true
   require_chef_omnibus: 13.0.118
+  customize:
+    cpus: 2
 
 platforms:
   - name: centos-7.3
