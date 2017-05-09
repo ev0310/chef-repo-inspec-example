@@ -6,6 +6,9 @@ driver:
   customize:
     cpus: 2
 
+provisioner:
+  name: chef_zero
+
 platforms:
   - name: centos-7.3
 
