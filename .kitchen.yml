@@ -13,7 +13,7 @@ platforms:
   - name: centos-7.3
 
 suites:
-  - name: default
+  - name: <%= ENV['ROLE'] != nil ? ENV[ROLE] : 'base' %>
     run_list:
       - role[<%= ENV['ROLE'] != nil ? ENV[ROLE] : 'base' %>]
     attributes:
