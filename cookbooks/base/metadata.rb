@@ -8,5 +8,6 @@ version          '0.1.0'
 
 depends "ntp"
 depends "threatstack", "1.7.2"
+depends "users"
 depends "yum"
 depends "yum-epel"

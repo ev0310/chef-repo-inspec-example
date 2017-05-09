@@ -1,0 +1,10 @@
+{
+  "id": "tom",
+  "comment": "Tom McLaughlin",
+  "ssh_keys": [],
+  "groups": [
+    "users",
+    "wheel"
+  ],
+  "shell": "\/bin\/bash"
+}
