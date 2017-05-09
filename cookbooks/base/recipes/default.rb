@@ -3,6 +3,14 @@
 # Recipe:: default
 #
 
+# Sudo
+include_recipe 'sudo'
+
+# We've taken care of this by adding the user to the attribute.
+file '/etc/sudoers.d/vagrant' do
+  action :delete
+end
+
 include_recipe 'ntp'
 
 # Get our repos.
