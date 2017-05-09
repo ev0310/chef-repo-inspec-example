@@ -3,5 +3,4 @@ default['ntp']['servers'] = [
   '1.amazon.pool.ntp.org',
   '2.amazon.pool.ntp.org'
 ]
-default['ntp']['sync_hw_clock'] = true
 
