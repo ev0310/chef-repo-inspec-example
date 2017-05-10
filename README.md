@@ -54,7 +54,7 @@ control 'groups-1' do
   describe group('users') do
     it {should exist}
   end
-  describe group('wheels') do
+  describe group('wheel') do
     it {should exist}
   end
 end
