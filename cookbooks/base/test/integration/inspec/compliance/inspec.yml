@@ -1,0 +1,9 @@
+name: base-compliance
+title: Base Compliance
+maintainer: Tom McLaughlin
+copyright: Threat Stack, Inc
+copyright_email: tom.mclaughlin@threatstack.com
+license: MIT
+summary: Base OS Compliance Profile
+version: 0.1.0
+
