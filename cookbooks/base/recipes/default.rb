@@ -27,3 +27,9 @@ end
 # Install threat stack
 include_recipe "threatstack"
 
+
+# Users / Groups
+# These groups already exist but by defining these resources we also force
+# the creation of our users in our databags
+users_manage 'users'
+users_manage 'wheel'
