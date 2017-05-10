@@ -9,6 +9,14 @@ driver:
 provisioner:
   name: chef_zero
 
+verifier:
+  name: inspec
+  inspec_tests:
+    - name: site-base
+      path: cookbooks/base/test/integration/inspec
+  attrs:
+    - cookbooks/base/test/integration/inspec/compliance/attributes/default.yml
+
 platforms:
   - name: centos-7.3
 
