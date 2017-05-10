@@ -21,9 +21,9 @@ end
 
 # Set default attribute
 admin_users = attribute(
-  'admin_users',
+  'base_compliance_admin_users',
   description: 'List of users that should be admins',
-  default: ['tom']
+  default: []
 )
 
 control 'groups-2' do
