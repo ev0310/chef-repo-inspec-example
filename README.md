@@ -40,8 +40,8 @@ With the profile metadata written start adding compliance tests under the _contr
 controls/groups.rb
 ```ruby
 control 'groups-1' do
-  impact 1.0
-  title 'GROUPS: Ensure necessary groups exist'
+  impact 0.4
+  title 'Ensure necessary groups exist'
   desc '
     Make sure the wheel (admin) and users group exist on this host.  All user
     accounts should be added to users.  All users should be a member of users.
