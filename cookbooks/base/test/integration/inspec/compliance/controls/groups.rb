@@ -18,3 +18,18 @@ control 'groups-1' do
   end
 end
 
+control 'groups-2' do
+  impact 1.0
+  title 'Ensure only appropriate members of wheel group'
+  desc '
+    Ensure the wheel group only contains agreed upon members.
+  '
+
+  tag 'users', 'groups'
+  ref 'Compliance: Host Access', url: 'https://wiki.example.com/security/compliance/ops/Host+Access+And+Permissions'
+
+  describe users.where { groups.include?('wheel')  && ! ['tom'].include?(username) } do
+    its('entries.length') { should eq 0 }
+  end
+end
+
