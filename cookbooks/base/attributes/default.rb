@@ -8,5 +8,5 @@ default['base']['packages'] = [
   'lsof',
   'tcpdump',
   'tmux',
-  'vim-minimal',
+  'vim-enhanced',
 ]
