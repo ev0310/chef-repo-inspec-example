@@ -14,6 +14,7 @@ end
 include_recipe 'ntp'
 
 # Get our repos.
+include_recipe 'yum-centos'
 include_recipe 'yum-epel'
 
 # Install our base packages.
