@@ -60,3 +60,13 @@ control 'groups-1' do
 end
 ```
 
+## Chef Repo
+This repository uses wrapper style cookbooks to set default attributes on cookbooks obtained via the Chef Supermarket.  All services should have a role defined for it as well as a cookbook.  The `run_list` for the role should be:
+* recipe[base]
+* recipe[$SERVICE_COOKBOOK]
+
+Cookbook creation
+```
+$ cd cookbooks
+$ chef generate cookbook site-{SERVICE} -C "Threat Stack, Inc" -m you@threatstack.com -I mit
+```
