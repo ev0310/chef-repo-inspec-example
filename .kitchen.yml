@@ -21,9 +21,9 @@ platforms:
   - name: centos-7.3
 
 suites:
-  - name: <%= ENV['ROLE'] != nil ? ENV[ROLE] : 'base' %>
+  - name: <%= ENV['ROLE'] != nil ? ENV['ROLE'] : 'base' %>
     run_list:
-      - role[<%= ENV['ROLE'] != nil ? ENV[ROLE] : 'base' %>]
+      - role[<%= ENV['ROLE'] != nil ? ENV['ROLE'] : 'base' %>]
     attributes:
       ntp:
         servers:
