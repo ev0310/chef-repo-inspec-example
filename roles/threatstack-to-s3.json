@@ -1,0 +1,8 @@
+{
+  "name": "threatstack-to-s3",
+  "description": "Create threatstack-to-s3 host",
+  "run_list": [
+    "recipe[base]",
+    "recipe[svc-threatstack-to-s3]"
+  ]
+}
