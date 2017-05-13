@@ -24,4 +24,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# Let's get Habitat setup
+user 'hab' do
+  comment 'Habitat User'
+  uid '9990'
+  home '/home/hab'
+  shell '/bin/false'
+end
+
+
+hab_install 'habitat'
+hab_package 'tmclaugh/threatstack-to-s3'
+hab_sup 'default'
+hab_service 'tmclaugh/threatstack-to-s3'
+
+# Get nginx up and running.
 include_recipe 'site-nginx'
