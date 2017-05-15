@@ -1,0 +1,8 @@
+name: base
+title: svc-threatstack-to-s3 Base Profile
+maintainer: Tom McLaughlin
+copyright: Threat Stack, Inc
+copyright_email: tom.mclaughlin@threatstack.com
+license: MIT
+summary: InSpec base tests for svc-threatstack-to-s3
+version: 0.1.0
