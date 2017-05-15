@@ -40,3 +40,20 @@ hab_service 'tmclaugh/threatstack-to-s3'
 
 # Get nginx up and running.
 include_recipe 'site-nginx'
+
+nginx_site 'threatstack-to-s3' do
+  enable true
+  template 'nginx_site.erb'
+  variables (
+    {
+      app_name:       'threatstack-to-s3',
+      root:           node['nginx']['site']['threatstack-to-s3']['root'],
+      listen:         node['nginx']['site']['threatstack-to-s3']['listen'],
+      logname:        node['nginx']['site']['threatstack-to-s3']['logname'],
+      socket_type:    node['nginx']['site']['threatstack-to-s3']['socket']['type'],
+      socket_address: node['nginx']['site']['threatstack-to-s3']['socket']['address'],
+      socket_port:    node['nginx']['site']['threatstack-to-s3']['socket']['port']
+    }
+  )
+end
+

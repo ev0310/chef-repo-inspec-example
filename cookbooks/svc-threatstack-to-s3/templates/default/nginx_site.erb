@@ -1,0 +1,45 @@
+ server {
+
+    listen <%= @listen %> default;
+
+    access_log <%= node['nginx']['log_dir'] %>/<%= @logname %>.access.log<% if @access_log_options %> <%= node@access_log_options %><% end %>;
+    error_log <%= node['nginx']['log_dir'] %>/<%= @logname %>.error.log <%= @log_level %>;
+
+
+    client_max_body_size 4G;
+    keepalive_timeout 5;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+
+    if ($request_method !~ ^(GET|HEAD|PUT|POST|DELETE|OPTIONS|PATCH)$ ) {
+      return 405;
+    }
+
+    location @app_<%= @app_name %> {
+
+      proxy_read_timeout 600;
+      <%
+        if @socket_type
+          case @socket_type
+          when 'unix'
+      -%>
+      proxy_pass http://unix:$app_home/<%= @app_name %>/<%= @socket_path %>;
+      <%
+          when 'tcp'
+      -%>
+      proxy_pass http://localhost:<%= @socket_port -%>;
+      <%
+          end
+        else
+      -%>
+      proxy_pass http://unix:$app_home/<%= app %>/<%= @socket_path %>;
+      <%
+        end
+      -%>
+
+    }
+    <%= render 'nginx.erb', cookbook: 'ssl_certificate' %>
+}
