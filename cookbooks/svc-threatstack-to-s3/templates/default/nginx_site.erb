@@ -18,7 +18,7 @@
       return 405;
     }
 
-    location @app_<%= @app_name %> {
+    location <%= @app_location %> {
 
       proxy_read_timeout 600;
       <%

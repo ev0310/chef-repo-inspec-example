@@ -41,18 +41,26 @@ hab_service 'tmclaugh/threatstack-to-s3'
 # Get nginx up and running.
 include_recipe 'site-nginx'
 
+cert = ssl_certificate 'threatstack-to-s3' do
+  # we want to be able to use node['my-webapp'] to configure the certificate
+  namespace node['threatstack-to-s3']
+  notifies :restart, 'service[nginx]'
+end
+
 nginx_site 'threatstack-to-s3' do
   enable true
   template 'nginx_site.erb'
   variables (
     {
-      app_name:       'threatstack-to-s3',
+      app_location:   '/',
       root:           node['nginx']['site']['threatstack-to-s3']['root'],
       listen:         node['nginx']['site']['threatstack-to-s3']['listen'],
       logname:        node['nginx']['site']['threatstack-to-s3']['logname'],
       socket_type:    node['nginx']['site']['threatstack-to-s3']['socket']['type'],
       socket_address: node['nginx']['site']['threatstack-to-s3']['socket']['address'],
-      socket_port:    node['nginx']['site']['threatstack-to-s3']['socket']['port']
+      socket_port:    node['nginx']['site']['threatstack-to-s3']['socket']['port'],
+      ssl_key:        cert.key_path,
+      ssl_cert:       cert.chain_combined_path
     }
   )
 end
