@@ -1,3 +1,5 @@
 # Include upstream test
-include_controls 'nginx-baseline'
+require_controls 'nginx-baseline' do
+  control 'nginx-01'
+end
 
