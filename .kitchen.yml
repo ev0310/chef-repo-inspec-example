@@ -19,7 +19,7 @@ verifier:
     - name: svc-threatstack-to-s3-spec
       path: cookbooks/svc-threatstack-to-s3/test/integration/inspec/spec
   attrs:
-    - cookbooks/base/test/integration/inspec/compliance/attributes/default.yml
+    - cookbooks/base/test/integration/inspec/attributes/default.yml
     - cookbooks/svc-threatstack-to-s3/test/integration/inspec/spec/attributes/default.yml
 
 platforms:
