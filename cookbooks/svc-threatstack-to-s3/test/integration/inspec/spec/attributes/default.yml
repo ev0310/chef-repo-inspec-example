@@ -1,0 +1,5 @@
+---
+service_compliance_allowed_ports:
+  - 9631
+  - 9638
+
