@@ -7,3 +7,7 @@ license: MIT
 summary: Base OS Profile
 version: 0.1.0
 
+depends:
+  - name: ssl-baseline
+    url: https://github.com/dev-sec/ssl-baseline/archive/master.zip
+
