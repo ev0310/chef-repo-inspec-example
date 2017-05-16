@@ -12,11 +12,11 @@ provisioner:
 verifier:
   name: inspec
   inspec_tests:
-    - name: base-compliance
+    - name: base
       path: cookbooks/base/test/integration/inspec
-    - name: site-nginx-compliance
+    - name: site-nginx
       path: cookbooks/site-nginx/test/integration/inspec
-    - name: svc-threatstack-to-s3-spec
+    - name: svc-threatstack-to-s3
       path: cookbooks/svc-threatstack-to-s3/test/integration/inspec
   attrs:
     - cookbooks/base/test/integration/inspec/attributes/default.yml
