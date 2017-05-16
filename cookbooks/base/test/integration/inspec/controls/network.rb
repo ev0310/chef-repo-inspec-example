@@ -28,7 +28,7 @@ control 'network-1' do
   # Get list of non locally bound ports.
   #
   # XXX: We shoudl be checking IPv6.
-  ports = command('netstat -ant -A inet | tail -n +3 | awk \'{print $4}\' | grep -v 127.0.0.1 | cut -d : -f 2').stdout.strip.lines.sort!.uniq!
+  ports = command("netstat -ant -A inet | tail -n +3 | awk '{print $4}' | grep -v 127.0.0.1 | cut -d : -f 2").stdout.strip.lines.uniq!
 
   int_ports = ports.map { |i| i.to_i }
   (int_ports - allowed_ports).each do |p|
