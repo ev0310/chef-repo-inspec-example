@@ -19,6 +19,7 @@ verifier:
     - name: svc-threatstack-to-s3
       path: cookbooks/svc-threatstack-to-s3/test/integration/inspec
   attrs:
+    - cookbooks/base/test/integration/inspec/attributes/vagrant.yml
     - cookbooks/base/test/integration/inspec/attributes/default.yml
     - cookbooks/svc-threatstack-to-s3/test/integration/inspec/attributes/default.yml
 
