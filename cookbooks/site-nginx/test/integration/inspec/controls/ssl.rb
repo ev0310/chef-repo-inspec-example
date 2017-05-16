@@ -1,5 +1,5 @@
 
-cipher_list = command('openssl ciphers').stdout.split(':')
+cipher_list = command('openssl ciphers').stdout.strip.split(':')
 
 control 'ssl-1' do
   impact 0.7
