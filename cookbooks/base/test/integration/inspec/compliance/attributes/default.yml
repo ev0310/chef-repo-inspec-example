@@ -1,3 +1,8 @@
 ---
 base_compliance_admin_users:
   - tom
+
+base_compliance_allowed_ports:
+  - 22
+  - 111 # What up systemd!
+  - 443
