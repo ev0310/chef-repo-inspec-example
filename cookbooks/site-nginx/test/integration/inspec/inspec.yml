@@ -7,3 +7,7 @@ license: MIT
 summary: Nginx site Profile
 version: 0.1.0
 
+depends:
+  - name: nginx-baseline
+    url: https://github.com/tmclaugh/nginx-baseline/archive/assignment_regex_rename.zip
+
