@@ -2,16 +2,17 @@
 Example chef repository to show [Chef InSpec](https://www.inspec.io/) usage.
 
 ## InSpec
-All cookbooks should have at least a compliance InSpec profile for them.  The policy should test for what needs to be tested and for desired outcomes only.  That means the policy doesn't necessarily have to test for what is written in the cookbook but for what we want to happen or don't want to happen.  For example, we might test that only a certain set of users are a member of the _wheel_ group.  We might also test SSL/TLS configuration not for specific encryption ciphers but for a lack of disallowed ciphers.
+All cookbooks should have an InSpec profile for them.  The policy should contain both spec tests and compliance tests.  Spec tests are written to ensure that a host is configured and functions in a certain way.  Compliance tests should (in our repository) should ensure that a host is not configured improperly.
 
-Remember, the compliance profile tests are for compliance / test-driven security and not not test-driven development.
+* spec test: A service is running and responsive over HTTPS.
+* compliance test: HTTPS is not using week ciphers
 
 ### Setup
 Inspec is included in the ChefDK or can alternatively be installed using the repository's Gemfile.  Once installed, initialize a profile for a cookbook.  from the root of this repository:
 
 ```
-$ inspec init profile cookbooks/[cookbook]/test/integration/inspec/compliance
-Create new profile at /Users/tmclaughlin/Source/threatstack/chef-repo-inspec-example/cookbooks/base/tests/integration/inspec/compliance
+$ inspec init profile cookbooks/[cookbook]/test/integration/inspec
+Create new profile at /Users/tmclaughlin/Source/threatstack/chef-repo-inspec-example/cookbooks/base/tests/integration/inspec
  * Create directory controls
  * Create file controls/example.rb
  * Create file inspec.yml
