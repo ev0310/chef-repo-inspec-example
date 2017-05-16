@@ -15,7 +15,7 @@ verifier:
     - name: base-compliance
       path: cookbooks/base/test/integration/inspec
     - name: site-nginx-compliance
-      path: cookbooks/site-nginx/test/integration/inspec/compliance
+      path: cookbooks/site-nginx/test/integration/inspec
     - name: svc-threatstack-to-s3-spec
       path: cookbooks/svc-threatstack-to-s3/test/integration/inspec/spec
   attrs:

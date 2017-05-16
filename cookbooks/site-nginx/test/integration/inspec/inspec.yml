@@ -1,0 +1,12 @@
+name: site-nginx-compliance
+title: Nginx Compliance
+maintainer: Tom McLaughlin
+copyright: Threat Stack, Inc
+copyright_email: tom.mclaughlin@threatstack.com
+license: MIT
+summary: Nginx Compliance Profile
+version: 0.1.0
+
+depends:
+  - name: ssl-baseline
+    url: https://github.com/dev-sec/ssl-baseline/archive/master.zip
