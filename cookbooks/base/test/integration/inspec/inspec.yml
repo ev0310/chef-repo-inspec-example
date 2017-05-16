@@ -1,9 +1,9 @@
-name: base-compliance
-title: Base Compliance
+name: base
+title: Base spec tests
 maintainer: Tom McLaughlin
 copyright: Threat Stack, Inc
 copyright_email: tom.mclaughlin@threatstack.com
 license: MIT
-summary: Base OS Compliance Profile
+summary: Base OS Profile
 version: 0.1.0
 

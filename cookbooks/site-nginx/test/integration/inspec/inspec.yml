@@ -1,10 +1,10 @@
-name: site-nginx-compliance
-title: Nginx Compliance
+name: site-nginx
+title: Nginx spec tests
 maintainer: Tom McLaughlin
 copyright: Threat Stack, Inc
 copyright_email: tom.mclaughlin@threatstack.com
 license: MIT
-summary: Nginx Compliance Profile
+summary: Nginx site Profile
 version: 0.1.0
 
 depends:
