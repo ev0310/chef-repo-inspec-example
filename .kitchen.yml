@@ -12,7 +12,7 @@ provisioner:
 verifier:
   name: inspec
   inspec_tests:
-    - name: site-base
+    - name: base-compliance
       path: cookbooks/base/test/integration/inspec
   attrs:
     - cookbooks/base/test/integration/inspec/compliance/attributes/default.yml
