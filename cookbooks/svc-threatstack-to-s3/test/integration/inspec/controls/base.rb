@@ -6,11 +6,7 @@
 control 'base-1' do
   impact 1.0
   title 'service listening on port 443'
-  desc 'Ensure something is listening on port 443'
-  # Need to figure out how to get network facing IP.
-  describe host('127.0.0.1', port: 443, proto: 'tcp') do
-    it { should be_reachable }
-  end
+  desc 'Ensure service is responsive on port 443'
 
   # Is vagrant or not
   is_vagrant = command('hostname').stdout.split('.')[1] == 'vagrantup' || false
