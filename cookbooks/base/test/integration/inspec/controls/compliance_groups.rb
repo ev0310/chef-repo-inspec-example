@@ -1,4 +1,4 @@
-control 'groups-1' do
+control 'compliance-groups-1' do
   impact 0.4
   title 'Ensure necessary groups exist'
   desc '
@@ -26,7 +26,7 @@ admin_users = attribute(
   default: []
 )
 
-control 'groups-2' do
+control 'compliance-groups-2' do
   impact 1.0
   title 'Ensure only appropriate members of wheel group'
   desc '

@@ -1,7 +1,7 @@
 
 cipher_list = command('openssl ciphers').stdout.strip.split(':')
 
-control 'ssl-1' do
+control 'compliance-ssl-1' do
   impact 0.7
   title 'Disallowed SSL/TLS protocols'
   desc '
@@ -20,7 +20,7 @@ control 'ssl-1' do
 
 end
 
-control 'ssl-2' do
+control 'compliance-ssl-2' do
   impact 0.7
   title 'Disallowed SSL/TLS ciphers'
   desc '

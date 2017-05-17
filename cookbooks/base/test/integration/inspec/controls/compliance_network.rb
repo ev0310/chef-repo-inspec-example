@@ -15,7 +15,7 @@ service_allowed_ports = attribute(
 
 allowed_ports = default_allowed_ports + service_allowed_ports
 
-control 'network-1' do
+control 'compliance-network-1' do
   impact 0.8
   title 'Ensure only allowed ports are network accessible'
   desc '

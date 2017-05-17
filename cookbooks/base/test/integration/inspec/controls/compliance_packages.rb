@@ -1,4 +1,4 @@
-control 'packages-1' do
+control 'compliance-packages-1' do
   impact 0.8
   title 'Ensure all repos have gpg checking enabled'
   desc '
