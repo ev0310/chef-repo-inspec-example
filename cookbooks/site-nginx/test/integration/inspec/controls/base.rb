@@ -1,6 +1,6 @@
 # nginx base spec
 
-control 'spec-base-1' do
+control 'base-1' do
   impact 1.0
   title 'nginx running and listening.'
   desc 'Ensure service is running and listening'
