@@ -27,11 +27,6 @@ verifier:
 
 platforms:
   - name: centos-7.3
-
-suites:
-  - name: <%= ENV['ROLE'] != nil ? ENV['ROLE'] : 'base' %>
-    run_list:
-      - role[<%= ENV['ROLE'] != nil ? ENV['ROLE'] : 'base' %>]
     attributes:
       ntp:
         servers:
@@ -43,3 +38,10 @@ suites:
         configure_agent: <%= ENV['TS_CONFIG_AGENT'] == '1' ? true : false %>
         cloudsight_service_action: <%= ENV['TS_SERVICE_ACTION'] != nil ? ENV['TS_SERVICE_ACTION'] : 'enable' %>
 
+suites:
+  - name: base
+    run_list:
+      - role[base]
+  - name: threatstack-to-s3
+    run_list:
+      - role[threatstack-to-s3]
