@@ -1,3 +1,9 @@
+admin_users = attribute(
+  'base_compliance_admin_users',
+  description: 'List of users that should be admins',
+  default: []
+)
+
 control 'groups-1' do
   impact 0.4
   title 'Ensure necessary groups exist'
@@ -8,13 +14,26 @@ control 'groups-1' do
   '
 
   tag 'users', 'groups'
-  ref 'Compliance: Host Access', url: 'https://wiki.example.com/security/compliance/ops/Host+Access+And+Permissions'
 
   describe group('users') do
     it {should exist}
   end
   describe group('wheel') do
     it {should exist}
+  end
+end
+
+control 'users-1' do
+  impact 0.6
+  title 'Ensure admin users have been created'
+  desc 'All admin users must be present on the system.'
+  tag 'users', 'groups'
+
+  admin_users.each do |u|
+    describe user(u) do
+      it { should exist }
+      its('groups') { should include 'wheel' }
+    end
   end
 end
 
