@@ -1,10 +1,32 @@
 # chef-repo-inspec-example
 Example chef repository to show [Chef InSpec](https://www.inspec.io/) usage.
 
+This repository is intended to demonstrate Chef InSpec integrated into a Chef configuration management repository and using it to catch security policy violations in the development process.  Using [test-kitchen](http://kitchen.ci/) you can spin up a Vagrant host locally that configures a Linux host to runs a web service proxied via Nginx.  With it running you can invoke InSpec via test-kitchen.
+
+If you're interested in understanding why you might use InSpec, read [Test-Driven Security With Chef InSpec](https://blog.threatstack.com/test-driven-security-with-chef-inspec)
+
+## Usage
+If you don't have an already configured Ruby environment start by installing the [ChefDK](https://downloads.chef.io/chefdk).  If you already have one, install the dependencies via the [Gemfile](https://github.com/threatstack/chef-repo-inspec-example/blob/master/Gemfile) for this repository.
+
+With dependencies installed, create a running Virtualbox instance.
+```
+$ kitchen converge threatstack-to-s3-centos-73
+```
+
+Once up and running you can login and poke around using the following command.  A [Python Flask web service](https://github.com/threatstack/threatstack-to-s3) is installed and running via [Habitat](https://habitat.sh) and traffic is proxied to it via Nginx.
+```
+kitchen login threatstack-to-s3-centos-73
+```
+
+Finally, run the configured InSpec tests.  Some tests will fail.  They are intentional and intended to demonstrate real issues that were caught while building this project.
+```
+kitchen verify threatstack-to-s3-centos-73
+```
+
 ## InSpec
 All cookbooks should have an InSpec profile for them.  The policy should contain both spec tests and compliance tests.  Spec tests are written to ensure that a host is configured and functions in a certain way.  Compliance tests should (in our repository) should ensure that a host is not configured improperly.
 
-* spec test: A service is running and responsive over HTTPS.
+* integrationc test: A service was setup and is running and responsive over HTTPS.
 * compliance test: HTTPS is not using week ciphers
 
 ### Setup
